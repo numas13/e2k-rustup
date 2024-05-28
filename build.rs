@@ -27,4 +27,8 @@ fn main() {
     }
     let target = env::var("TARGET").unwrap();
     println!("cargo:rustc-env=TARGET={}", target);
+
+    let src = "e2k/lccrt_fix.c";
+    println!("cargo::rerun-if-changed={}", src);
+    cc::Build::new().file(src).compile("lccrt_fix");
 }

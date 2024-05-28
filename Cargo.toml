@@ -103,6 +103,7 @@ walkdir = "2"
 [build-dependencies]
 lazy_static = "1"
 regex = "1"
+cc = "1"
 
 [workspace]
 members = ["download"]
@@ -118,3 +119,7 @@ lto = true
 # Reduce build time by setting proc-macro crates non optimized.
 [profile.release.build-override]
 opt-level = 0
+
+[patch.crates-io]
+cc = { git = 'https://github.com/numas13/e2k-cc-rs.git', tag = 'e2k-1.0.82' }
+libc = { git = 'https://github.com/numas13/e2k-libc.git', tag = 'e2k-0.2.150' }
