@@ -9,7 +9,7 @@ license = "MIT/Apache-2.0"
 
 [features]
 
-default = ["reqwest-backend"]
+default = ["curl-backend"]
 
 curl-backend = ["curl"]
 reqwest-backend = ["reqwest", "env_proxy", "lazy_static"]
