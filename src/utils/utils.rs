@@ -242,7 +242,10 @@ fn download_file_(
     // Download the file
 
     // Keep the hyper env var around for a bit
+    #[cfg(feature = "reqwest-backend")]
     let use_curl_backend = process().var_os("RUSTUP_USE_CURL").is_some();
+    #[cfg(not(feature = "reqwest-backend"))]
+    let use_curl_backend = true;
     let (backend, notification) = if use_curl_backend {
         (Backend::Curl, Notification::UsingCurl)
     } else {
